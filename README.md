@@ -1,0 +1,53 @@
+# hypr-dots
+
+Minimal, fast, borderless Hyprland setup with automatic palette generation
+from your wallpaper (**matugen** repaints kitty, fuzzel, mako, hyprlock,
+GTK3/GTK4, btop, cava).
+
+## Features
+
+- Hyprland 0.55+ **Lua config** (the future-proof format, hyprlang is deprecated)
+- No window borders, soft 15px rounding, airy gaps, fast smooth animations
+- macOS-style touchpad (natural scroll, tap-to-click, clickfinger, 3-finger drag)
+- 3-finger swipe to change workspaces
+- Auto keyboard-backlight binds: any laptop with `*::kbd_backlight` LED gets
+  F5/F6 style binds, desktops get nothing (auto detected at config load)
+- Wallpaper picker on fuzzel (`SUPER + W`) — apply + remember + recolor everything
+- hyprlock with wallpaper background and matching colors
+- grim+slurp screenshots to clipboard + `~/Pictures/Screenshots`
+
+## Install (Arch / Arch-based)
+
+```bash
+git clone https://github.com/Vlad175cm/hypr-dots.git
+cd hypr-dots
+./install.sh
+```
+
+The script:
+1. installs packages via pacman,
+2. backs up existing `hypr`, `matugen`, `mako` configs to `~/hypr-dots-backup-<date>`,
+3. copies configs,
+4. patches kitty and GTK to consume matugen colors (idempotent),
+5. generates a first palette if you have images in `~/.wallpapers` (create the
+   folder and drop pictures in before running the script, or skip and drop
+   later — then press `SUPER + W`).
+
+Then pick **Hyprland (UWSM)** in SDDM/Ly/whatever.
+
+## Wallpapers
+
+Drop images into `~/.wallpapers` (the repo ships the folder empty on purpose).
+
+## Notes
+
+- Monitors are configured generically (`preferred/auto`, scale 1). HiDPI users:
+  change `scale` in `hypr/conf/monitors.lua`.
+- NVIDIA users: install the driver first; see the Hyprland wiki NVIDIA page.
+- Everything is tuned for 1440p-*/60Hz-ish laptop panels at 1x scale; animation
+  speeds live in `hypr/conf/animations.lua` and gaps/borders in
+  `hypr/conf/decoration.lua`.
+
+## Keybindings
+
+See `docs/keybindings.txt`.

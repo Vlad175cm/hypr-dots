@@ -1,0 +1,59 @@
+HYPRLAND KEYBINDINGS
+====================
+
+App bindings
+------------
+SUPER + Enter                kitty
+SUPER + B                    zen-browser
+SUPER + D                    fuzzel (app launcher)
+SUPER + W                    wallpaper menu (fuzzel dmenu from ~/.wallpapers)
+SUPER + E                    nautilus (new window)
+SUPER + T                    Telegram
+SUPER + ALT + B              blueman-manager (bluetooth)
+
+Window management
+-----------------
+SUPER + Q                    close window
+SUPER + F                    toggle fullscreen
+SUPER + ALT + F              toggle floating
+SUPER + V                    toggle split orientation
+SUPER + ALT + Arrow          move window left/right/up/down
+
+Workspaces
+----------
+SUPER + 0..9                 switch to workspace 1..10
+SUPER + SHIFT + 0..9         move active window to workspace 1..10
+3-finger horizontal swipe    switch workspace (touchpad)
+
+Focus
+-----
+SUPER + Arrow                change focus left/right/up/down
+
+Screenshots (saved to ~/Pictures/Screenshots, copied to clipboard)
+------------------------------------------------------------------
+SUPER + SHIFT + A            select area
+SUPER + SHIFT + W            active window
+SUPER + SHIFT + F            full screen
+
+Session
+-------
+SUPER + L                    hyprlock
+SUPER + S                    exit Hyprland (no confirmation!)
+SUPER + SHIFT + R            reload config
+
+Hardware keys (MacBook Air 2017)
+--------------------------------
+F1 / F2                       screen brightness down/up
+F5 / F6                       keyboard backlight down/up
+F10 / F11 / F12               volume mute / down / up
+
+Layout
+------
+SUPER + Space                us <-> ru
+
+Files
+-----
+Config:     ~/.config/hypr/hyprland.lua (modules in ~/.config/hypr/conf/)
+Wallpaper:  ~/.config/hypr/scripts/wallpaper.sh
+Wallpaper:  ~/.wallpapers (folder for wallpaper images)
+Screenshots: ~/Pictures/Screenshots
