@@ -1,0 +1,22 @@
+[general]
+framerate = 60
+
+[input]
+method = pulse
+source = auto
+
+[output]
+method = ncurses
+style = stereo
+
+[color]
+gradient = 1
+gradient_count = 8
+gradient_color_1 = '#524343'
+gradient_color_2 = '#a08c8c'
+gradient_color_3 = '#ffb3b3'
+gradient_color_4 = '#ffb3b3'
+gradient_color_5 = '#ffb3b3'
+gradient_color_6 = '#733335'
+gradient_color_7 = '#ffdad9'
+gradient_color_8 = '#f0dede'

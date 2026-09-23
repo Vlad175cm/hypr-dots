@@ -41,6 +41,14 @@ chmod +x "$CFG/hypr/scripts/"*.sh
 
 mkdir -p "$HOME/.wallpapers" "$HOME/Pictures/Screenshots" "$HOME/.local/state/hypr"
 
+log "copying app configs (fuzzel, cava, btop)"
+mkdir -p "$CFG/fuzzel" "$CFG/cava" "$CFG/btop/themes"
+cp -a "$DOT/fuzzel/fuzzel.ini" "$CFG/fuzzel/fuzzel.ini" 2>/dev/null || true
+cp -a "$DOT/cava/config"       "$CFG/cava/config"        2>/dev/null || true
+cp -a "$DOT/btop/btop.conf"    "$CFG/btop/btop.conf"     2>/dev/null || true
+cp -a "$DOT/btop/themes/."     "$CFG/btop/themes/"       2>/dev/null || true
+
+
 # ---------- 4. kitty: добавить инклуд matugen-цветов (идемпотентно) ----------
 log "patching kitty"
 KITTY="$CFG/kitty/kitty.conf"
