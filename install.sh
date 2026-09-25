@@ -63,6 +63,11 @@ include matugen.conf
 allow_remote_control socket-only
 listen_on unix:@kitty
 EOF
+# kitty >= 0.49 persists window-state (incl. maximized) in ~/.cache/kitty/main.json
+# and restores it on every launch — breaks Hyprland tiling. Disable state restore.
+sed -i 's/^remember_window_size.*/remember_window_size  no/' "$KITTY"
+grep -q "remember_window_size" "$KITTY" || printf 'remember_window_size  no\n' >> "$KITTY"
+rm -f "$HOME/.cache/kitty/main.json"
 
 # ---------- 5. GTK: @import матугена (идемпотентно, темы не трогаем) ----------
 log "patching GTK"

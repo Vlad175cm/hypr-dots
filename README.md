@@ -7,7 +7,7 @@ GTK3/GTK4, btop, cava).
 ## Features
 
 - Hyprland 0.55+ **Lua config** (the future-proof format, hyprlang is deprecated)
-- No window borders, soft 15px rounding, airy gaps, fast smooth animations
+- No window borders, soft 15px rounding, no kitty fullscreen-restore quirk, airy gaps, fast smooth animations
 - macOS-style touchpad (natural scroll, tap-to-click, clickfinger, 3-finger drag)
 - 3-finger swipe to change workspaces
 - Auto keyboard-backlight binds: any laptop with `*::kbd_backlight` LED gets
