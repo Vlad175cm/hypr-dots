@@ -2,13 +2,18 @@ local S = "SUPER"
 local SA = "SUPER + ALT"
 local SS = "SUPER + SHIFT"
 
-hl.bind(S .. " + Return", hl.dsp.exec_cmd("kitty"))
+hl.bind(S .. " + Return", hl.dsp.exec_cmd("kitty --single-instance --instance-group=hmain"))
 hl.bind(S .. " + B", hl.dsp.exec_cmd("zen-browser"))
-hl.bind(S .. " + D", hl.dsp.exec_cmd("fuzzel"))
-hl.bind(S .. " + W", hl.dsp.exec_cmd(os.getenv("HOME") .. "/.config/hypr/scripts/wallpaper.sh"))
+-- the island: the main panel (what hovering the island opens), then the rest
+hl.bind(S .. " + A", hl.dsp.exec_cmd("qs ipc call island dashboard"))
+hl.bind(S .. " + D", hl.dsp.exec_cmd("qs ipc call island open launcher"))
+hl.bind(S .. " + W", hl.dsp.exec_cmd("qs ipc call island open wallpapers"))
+hl.bind(S .. " + N", hl.dsp.exec_cmd("qs ipc call island open notifications"))
+hl.bind(S .. " + K", hl.dsp.exec_cmd("qs ipc call island open keys"))
+hl.bind(S .. " + C", hl.dsp.exec_cmd("qs ipc call island open info"))
+hl.bind(SS .. " + B", hl.dsp.exec_cmd("qs ipc call island open battery"))
 hl.bind(S .. " + E", hl.dsp.exec_cmd("nautilus --new-window"))
 hl.bind(S .. " + T", hl.dsp.exec_cmd("Telegram"))
-hl.bind(SA .. " + B", hl.dsp.exec_cmd("blueman-manager"))
 
 hl.bind(S .. " + Q", hl.dsp.window.close())
 hl.bind(S .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
@@ -42,7 +47,7 @@ hl.bind(SS .. " + R", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { repeating = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set +5%"), { repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"), { repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true })
 
 local kbd_dev = nil
