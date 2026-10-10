@@ -35,6 +35,13 @@ The script:
 
 Then pick **Hyprland (UWSM)** in SDDM/Ly/whatever.
 
+## nvim
+
+Clean, minimal Neovim (4 plugins, ~55ms startup). Colors are not a colorscheme
+plugin: matugen generates `~/.config/nvim/colors/matugen.lua` on every wallpaper
+change so the whole editor follows your wallpaper. Splash screen is a single
+centered `NEOVIM` line in the wallpaper's accent color.
+
 ## Wallpapers
 
 Drop images into `~/.wallpapers` (the repo ships the folder empty on purpose),
