@@ -45,7 +45,10 @@ opt.fillchars:append({
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.cmd.colorscheme("default")
+local ok = pcall(vim.cmd.colorscheme, "matugen")
+if not ok then
+	vim.cmd.colorscheme("default")
+end
 
 local group = vim.api.nvim_create_augroup("minimal", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -69,6 +72,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = group,
 	callback = function(args)
-		vim.lsp.completion.enable(args.buf, args.data.client_id, true)
+		vim.lsp.completion.enable(true, args.data.client_id, args.buf, { autotrigger = true })
 	end,
 })

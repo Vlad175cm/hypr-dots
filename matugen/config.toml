@@ -1,3 +1,7 @@
+[templates.quickshell]
+input_path = "~/.config/matugen/templates/quickshell.json"
+output_path = "~/.config/quickshell/theme/colors.json"
+
 [config]
 mode = "dark"
 type = "scheme_tonal_spot"
@@ -11,11 +15,6 @@ post_hook = "kitty @ set-colors --all ~/.config/kitty/matugen.conf || true"
 [templates.fuzzel]
 input_path = "~/.config/matugen/templates/fuzzel.ini"
 output_path = "~/.config/fuzzel/fuzzel.ini"
-
-[templates.mako]
-input_path = "~/.config/matugen/templates/mako.conf"
-output_path = "~/.config/mako/config"
-post_hook = "makoctl reload || true"
 
 [templates.gtk4]
 input_path = "~/.config/matugen/templates/gtk4.css"
@@ -37,3 +36,7 @@ post_hook = "sed -i 's|^color_theme.*|color_theme = \"matugen\"|' ~/.config/btop
 [templates.cava]
 input_path = "~/.config/matugen/templates/cava.conf"
 output_path = "~/.config/cava/config"
+
+[templates.nvim]
+input_path = "~/.config/matugen/templates/nvim.lua"
+output_path = "~/.config/nvim/colors/matugen.lua"

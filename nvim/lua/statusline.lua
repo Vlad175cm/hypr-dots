@@ -1,37 +1,3 @@
-local hl = vim.api.nvim_set_hl
-local none = { bg = "NONE", default = true }
-
-hl(0, "Normal", none)
-hl(0, "NormalNC", none)
-hl(0, "StatusLine", { fg = "#8b949e", bg = "NONE" })
-hl(0, "StatusLineNC", { fg = "#484f58", bg = "NONE" })
-hl(0, "TabLine", { fg = "#6e7681", bg = "NONE" })
-hl(0, "TabLineFill", none)
-hl(0, "TabLineSel", { fg = "#f0f6fc", bg = "NONE", bold = true })
-hl(0, "MsgArea", none)
-hl(0, "NormalFloat", { bg = "#000000" })
-hl(0, "FloatBorder", { fg = "#444c56", bg = "#000000" })
-hl(0, "WinSeparator", { fg = "#30363d", bg = "NONE" })
-hl(0, "VertSplit", { fg = "#30363d", bg = "NONE" })
-hl(0, "EndOfBuffer", { fg = "#21262d", bg = "NONE" })
-hl(0, "LineNr", { fg = "#484f58", bg = "NONE" })
-hl(0, "CursorLineNr", { fg = "#f0f6fc", bg = "NONE" })
-hl(0, "SignColumn", none)
-hl(0, "ColorColumn", none)
-hl(0, "Visual", { bg = "#1c2f3f" })
-hl(0, "CursorLine", { bg = "#0f1014" })
-hl(0, "TelescopeNormal", { bg = "#000000" })
-hl(0, "TelescopePromptTitle", { fg = "#6e7681", bg = "#000000" })
-hl(0, "TelescopeResultsTitle", { fg = "#6e7681", bg = "#000000" })
-hl(0, "TelescopePreviewTitle", { fg = "#6e7681", bg = "#000000" })
-hl(0, "TelescopePromptBorder", { fg = "#30363d", bg = "#000000" })
-hl(0, "TelescopeResultsBorder", { fg = "#30363d", bg = "#000000" })
-hl(0, "TelescopePreviewBorder", { fg = "#30363d", bg = "#000000" })
-hl(0, "WarningMsg", { fg = "#d29922", bg = "NONE" })
-hl(0, "ErrorMsg", { fg = "#f85149", bg = "NONE" })
-hl(0, "DiagnosticError", { fg = "#f85149", bg = "NONE" })
-hl(0, "DiagnosticWarn", { fg = "#d29922", bg = "NONE" })
-
 local SEV = { ["1"] = "✗", ["2"] = "▲", ["3"] = "»" }
 
 local function statusline()
@@ -56,7 +22,7 @@ local function statusline()
 	return table.concat({
 		" ",
 		name,
-		mod ~= "" and "." or "",
+		mod ~= "" and "+" or "",
 		#diag > 0 and (" " .. table.concat(diag, " ")) or "",
 		"%=",
 		lsp ~= "" and (lsp .. " │ ") or "",
@@ -71,7 +37,7 @@ local function tabline()
 		if vim.bo[b.bufnr].buflisted and (vim.api.nvim_buf_is_loaded(b.bufnr) or b.bufnr == cur) then
 			local name = b.name ~= "" and vim.fn.fnamemodify(b.name, ":t") or "[No Name]"
 			local hlgroup = b.bufnr == cur and "%#TabLineSel#" or "%#TabLine#"
-			parts[#parts + 1] = hlgroup .. name .. (vim.bo[b.bufnr].modified and " +" or "")
+			parts[#parts + 1] = hlgroup .. name .. (vim.bo[b.bufnr].modified and "+" or "")
 		end
 	end
 	return table.concat(parts, "  ") .. "%T%="
