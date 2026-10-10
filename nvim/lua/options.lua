@@ -50,6 +50,25 @@ if not ok then
 	vim.cmd.colorscheme("default")
 end
 
+local watch = vim.uv.new_fs_event()
+if watch then
+	local debouncer
+	watch:start(vim.env.HOME .. "/.config/nvim/colors", { recursive = true }, function()
+		if debouncer then
+			vim.uv.timer_stop(debouncer)
+			vim.uv.close(debouncer)
+		end
+		debouncer = vim.uv.new_timer()
+		debouncer:start(60, 0, function()
+			vim.schedule(function()
+				if vim.g.colors_name == "matugen" then
+					pcall(vim.cmd, "colorscheme matugen")
+				end
+			end)
+		end)
+	end)
+end
+
 local group = vim.api.nvim_create_augroup("minimal", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = group,
