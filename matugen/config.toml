@@ -1,11 +1,11 @@
-[templates.quickshell]
-input_path = "~/.config/matugen/templates/quickshell.json"
-output_path = "~/.config/quickshell/theme/colors.json"
-
 [config]
 mode = "dark"
 type = "scheme_tonal_spot"
 restart_apps = false
+
+[templates.quickshell]
+input_path = "~/.config/matugen/templates/quickshell.json"
+output_path = "~/.config/quickshell/theme/colors.json"
 
 [templates.kitty]
 input_path = "~/.config/matugen/templates/kitty.conf"
@@ -19,6 +19,7 @@ output_path = "~/.config/fuzzel/fuzzel.ini"
 [templates.gtk4]
 input_path = "~/.config/matugen/templates/gtk4.css"
 output_path = "~/.config/gtk-4.0/matugen.css"
+post_hook = "bash -c 'pkill -x nautilus >/dev/null 2>&1 && (sleep 0.2; setsid -f nautilus --new-window >/dev/null 2>&1 </dev/null) || true'"
 
 [templates.gtk3]
 input_path = "~/.config/matugen/templates/gtk3.css"
@@ -31,11 +32,12 @@ output_path = "~/.config/hypr/matugen-wall.conf"
 [templates.btop]
 input_path = "~/.config/matugen/templates/btop.theme"
 output_path = "~/.config/btop/themes/matugen.theme"
-post_hook = "sed -i 's|^color_theme.*|color_theme = \"matugen\"|' ~/.config/btop/btop.conf"
+post_hook = "sed -i 's|^color_theme.*|color_theme = \"matugen\"|' ~/.config/btop/btop.conf && pkill -USR2 -x btop >/dev/null 2>&1 || true"
 
 [templates.cava]
 input_path = "~/.config/matugen/templates/cava.conf"
 output_path = "~/.config/cava/config"
+post_hook = "pkill -USR2 -x cava >/dev/null 2>&1 || true"
 
 [templates.nvim]
 input_path = "~/.config/matugen/templates/nvim.lua"
