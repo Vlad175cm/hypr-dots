@@ -19,7 +19,8 @@ log "installing packages"
 sudo pacman -S --needed --noconfirm \
     hyprland hyprlock fuzzel mako swaybg wl-clipboard grim slurp \
     matugen brightnessctl blueman xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
-    inter-font kitty telegram-desktop nautilus btop cava zen-browser-bin uwsm
+    inter-font kitty telegram-desktop nautilus btop cava zen-browser-bin uwsm \
+    nvim lua-language-server pyright clang
 
 # ---------- 2. бэкап существующих конфигов, которые мы будем заменять ----------
 BK="$HOME/hypr-dots-backup-$(date +%Y%m%d-%H%M%S)"
@@ -68,6 +69,11 @@ EOF
 sed -i 's/^remember_window_size.*/remember_window_size  no/' "$KITTY"
 grep -q "remember_window_size" "$KITTY" || printf 'remember_window_size  no\n' >> "$KITTY"
 rm -f "$HOME/.cache/kitty/main.json"
+
+if [ -d "$CFG/nvim" ]; then
+    mv "$CFG/nvim" "$CFG/nvim.bak-$(date +%Y%m%d-%H%M%S)"
+fi
+cp -a "$DOT/nvim" "$CFG/nvim"
 
 # ---------- 5. GTK: @import матугена (идемпотентно, темы не трогаем) ----------
 log "patching GTK"
