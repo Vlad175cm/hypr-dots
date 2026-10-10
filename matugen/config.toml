@@ -19,6 +19,7 @@ output_path = "~/.config/fuzzel/fuzzel.ini"
 [templates.gtk4]
 input_path = "~/.config/matugen/templates/gtk4.css"
 output_path = "~/.config/gtk-4.0/matugen.css"
+post_hook = "~/.config/matugen/scripts/gtk-reload.sh"
 
 [templates.gtk3]
 input_path = "~/.config/matugen/templates/gtk3.css"
