@@ -5,11 +5,16 @@ hl.config({
 		gaps_out = 10,
 		layout = "dwindle",
 	},
+	dwindle = {
+		preserve_split = true,
+		use_active_for_splits = true,
+		default_split_ratio = 1.0,
+	},
 	decoration = {
 		rounding = 15,
 		rounding_power = 2,
-		inactive_opacity = 0.96,
-		active_opacity = 0.97,
+		inactive_opacity = 1.0,
+		active_opacity = 1.0,
 		fullscreen_opacity = 1.0,
 		blur = { enabled = false },
 		shadow = {

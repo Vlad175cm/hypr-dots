@@ -2,14 +2,12 @@ hl.curve("smooth", { type = "bezier", points = { { 0.16, 1.0 }, { 0.30, 1.0 } } 
 hl.curve("glide", { type = "bezier", points = { { 0.25, 1.0 }, { 0.40, 1.0 } } })
 
 hl.config({
-    animations = {
-        enabled = true,
-        workspace_wraparound = false,
-    },
-    misc = {
-        animate_manual_resizes = true,
-        animate_mouse_windowdragging = true,
-    },
+	animations = {
+		enabled = true,
+		workspace_wraparound = false,
+	},
+	misc = {
+	},
 })
 
 hl.animation({ leaf = "windows", enabled = true, speed = 7.0, bezier = "glide", style = "popin 94%" })
