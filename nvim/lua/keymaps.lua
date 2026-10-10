@@ -41,3 +41,18 @@ end, { desc = "code action" })
 map("n", "K", function()
 	return vim.lsp.buf.hover()
 end, { desc = "hover" })
+
+map("n", "v", "p")
+map("x", "v", '"_dP')
+
+map("n", "d", '"_x')
+map("x", "d", '"_d')
+
+map("n", "<M-Left>", "<Esc>v<Left>")
+map("n", "<M-Right>", "<Esc>v<Right>")
+map("n", "<M-Up>", "<Esc>v<Up>")
+map("n", "<M-Down>", "<Esc>v<Down>")
+map("x", "<M-Left>", "<Left>")
+map("x", "<M-Right>", "<Right>")
+map("x", "<M-Up>", "<Up>")
+map("x", "<M-Down>", "<Down>")

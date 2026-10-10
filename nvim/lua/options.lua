@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.signcolumn = "no"
 opt.showcmd = false
 opt.showmode = false
@@ -72,6 +72,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = group,
 	callback = function(args)
-		vim.lsp.completion.enable(true, args.data.client_id, args.buf, { autotrigger = true })
+		-- автокомплит отключён по твоей просьбе; LSP = hover/ определения / диагностики
 	end,
 })
