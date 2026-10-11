@@ -2,7 +2,7 @@ local S = "SUPER"
 local SA = "SUPER + ALT"
 local SS = "SUPER + SHIFT"
 
-hl.bind(S .. " + Return", hl.dsp.exec_cmd("kitty --single-instance --instance-group=hmain"))
+hl.bind(S .. " + Return", hl.dsp.exec_cmd("kitty"))
 hl.bind(S .. " + B", hl.dsp.exec_cmd("zen-browser"))
 -- the island: the main panel (what hovering the island opens), then the rest
 hl.bind(S .. " + A", hl.dsp.exec_cmd("qs ipc call island dashboard"))
@@ -12,7 +12,8 @@ hl.bind(S .. " + N", hl.dsp.exec_cmd("qs ipc call island open notifications"))
 hl.bind(S .. " + K", hl.dsp.exec_cmd("qs ipc call island open keys"))
 hl.bind(S .. " + C", hl.dsp.exec_cmd("qs ipc call island open info"))
 hl.bind(SS .. " + B", hl.dsp.exec_cmd("qs ipc call island open battery"))
-hl.bind(S .. " + E", hl.dsp.exec_cmd("nautilus --new-window"))
+hl.bind(SS .. " + V", hl.dsp.exec_cmd("qs ipc call island open clipboard"))
+hl.bind(S .. " + E", hl.dsp.exec_cmd("kitty -e yazi"))
 hl.bind(S .. " + T", hl.dsp.exec_cmd("Telegram"))
 
 hl.bind(S .. " + Q", hl.dsp.window.close())
