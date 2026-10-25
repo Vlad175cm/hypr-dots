@@ -1,5 +1,3 @@
-vim.api.nvim_set_hl_name = "matugen"
-
 local P = {
 	primary = "{{colors.primary.default.hex}}",
 	on_primary = "{{colors.on_primary.default.hex}}",
@@ -9,7 +7,7 @@ local P = {
 	secondary_container = "{{colors.secondary_container.default.hex}}",
 	tertiary = "{{colors.tertiary.default.hex}}",
 	tertiary_container = "{{colors.tertiary_container.default.hex}}",
-	on_tertiary_container = "{{colors.on_secondary_container.default.hex}}",
+	on_tertiary = "{{colors.on_tertiary.default.hex}}",
 	error = "{{colors.error.default.hex}}",
 	surface = "{{colors.surface.default.hex}}",
 	surface_container = "{{colors.surface_container.default.hex}}",
@@ -100,8 +98,8 @@ hl(0, "TelescopeMatching", { fg = P.primary })
 
 hl(0, "Search", { bg = P.primary, fg = P.on_primary })
 hl(0, "IncSearch", { bg = P.secondary, fg = P.on_secondary })
-hl(0, "CurSearch", { bg = P.tertiary, fg = P.on_tertiary_container })
-hl(0, "Substitute", { bg = P.tertiary, fg = P.on_tertiary_container })
+hl(0, "CurSearch", { bg = P.tertiary, fg = P.on_tertiary })
+hl(0, "Substitute", { bg = P.tertiary, fg = P.on_tertiary })
 
 hl(0, "DiagnosticError", { fg = P.error })
 hl(0, "DiagnosticWarn", { fg = P.tertiary })

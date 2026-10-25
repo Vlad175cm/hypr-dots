@@ -10,16 +10,11 @@ output_path = "~/.config/quickshell/theme/colors.json"
 [templates.kitty]
 input_path = "~/.config/matugen/templates/kitty.conf"
 output_path = "~/.config/kitty/matugen.conf"
-post_hook = "kitty @ set-colors --all ~/.config/kitty/matugen.conf || true"
-
-[templates.fuzzel]
-input_path = "~/.config/matugen/templates/fuzzel.ini"
-output_path = "~/.config/fuzzel/fuzzel.ini"
+post_hook = "~/.config/matugen/scripts/kitty-reload.sh"
 
 [templates.gtk4]
 input_path = "~/.config/matugen/templates/gtk4.css"
 output_path = "~/.config/gtk-4.0/matugen.css"
-post_hook = "~/.config/matugen/scripts/gtk-reload.sh"
 
 [templates.gtk3]
 input_path = "~/.config/matugen/templates/gtk3.css"
@@ -32,12 +27,12 @@ output_path = "~/.config/hypr/matugen-wall.conf"
 [templates.btop]
 input_path = "~/.config/matugen/templates/btop.theme"
 output_path = "~/.config/btop/themes/matugen.theme"
-post_hook = "sed -i 's|^color_theme.*|color_theme = \"matugen\"|' ~/.config/btop/btop.conf && pkill -USR2 -x btop >/dev/null 2>&1 || true"
+post_hook = "~/.config/matugen/scripts/btop-reload.sh"
 
 [templates.cava]
 input_path = "~/.config/matugen/templates/cava.conf"
 output_path = "~/.config/cava/config"
-post_hook = "pkill -USR2 -x cava >/dev/null 2>&1 || true"
+
 
 [templates.nvim]
 input_path = "~/.config/matugen/templates/nvim.lua"

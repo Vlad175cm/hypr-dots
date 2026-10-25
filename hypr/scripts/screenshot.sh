@@ -27,4 +27,4 @@ case "$mode" in
 esac
 
 wl-copy < "$FILE"
-notify-send -t 2500 "screenshot saved" "$FILE" || true
+notify-send -a Screenshot -t 3000 "Screenshot saved" "$(basename "$FILE")  ·  copied to clipboard" || true

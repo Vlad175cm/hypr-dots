@@ -15,6 +15,12 @@ hl.config({
             disable_while_typing = true,
         },
     },
+    -- do not fling the cursor into a window when something focuses it
+    -- programmatically (e.g. the island handing the keyboard back on close);
+    -- the island also only refocuses when it actually grabbed the keyboard
+    cursor = {
+        no_warps = true,
+    },
 })
 
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })

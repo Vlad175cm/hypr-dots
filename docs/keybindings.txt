@@ -1,33 +1,40 @@
-HYPRLAND KEYBINDINGS
-====================
+HYPRLAND + QUICKSHELL KEYBINDINGS
+=================================
 
-App bindings
-------------
+Quickshell (the "dynamic island")
+---------------------------------
+Hover                        expand the dashboard
+SUPER + A                    main panel (dashboard)
+SUPER + D                    application launcher
+SUPER + W                    wallpaper picker with previews
+SUPER + N                    notification centre
+SUPER + K                    this cheat sheet (in the island)
+SUPER + C                    full system info
+SUPER + SHIFT + B            battery details
+SUPER + SHIFT + V            clipboard history
+ESC                          close a pinned panel
+
+Apps
+----
 SUPER + Enter                kitty
 SUPER + B                    zen-browser
-SUPER + D                    fuzzel (app launcher)
-SUPER + W                    wallpaper menu (fuzzel dmenu from ~/.wallpapers)
-SUPER + E                    nautilus (new window)
+SUPER + E                    yazi (file manager in kitty)
 SUPER + T                    Telegram
-SUPER + ALT + B              blueman-manager (bluetooth)
 
-Window management
------------------
+Windows
+-------
 SUPER + Q                    close window
 SUPER + F                    toggle fullscreen
 SUPER + ALT + F              toggle floating
 SUPER + V                    toggle split orientation
+SUPER + Arrow                move focus left/right/up/down
 SUPER + ALT + Arrow          move window left/right/up/down
 
 Workspaces
 ----------
-SUPER + 0..9                 switch to workspace 1..10
-SUPER + SHIFT + 0..9         move active window to workspace 1..10
+SUPER + 1..0                 switch to workspace
+SUPER + SHIFT + 1..0         move active window to workspace
 3-finger horizontal swipe    switch workspace (touchpad)
-
-Focus
------
-SUPER + Arrow                change focus left/right/up/down
 
 Screenshots (saved to ~/Pictures/Screenshots, copied to clipboard)
 ------------------------------------------------------------------
@@ -39,21 +46,24 @@ Session
 -------
 SUPER + L                    hyprlock
 SUPER + S                    exit Hyprland (no confirmation!)
-SUPER + SHIFT + R            reload config
+SUPER + SHIFT + R            reload Hyprland config
 
-Hardware keys (MacBook Air 2017)
---------------------------------
-F1 / F2                       screen brightness down/up
-F5 / F6                       keyboard backlight down/up
-F10 / F11 / F12               volume mute / down / up
+Hardware keys
+-------------
+XF86AudioRaiseVolume         volume +5%
+XF86AudioLowerVolume         volume -5%
+XF86AudioMute                mute toggle
+XF86MonBrightnessUp/Down     screen brightness
+XF86KbdBrightnessUp/Down     keyboard backlight (if the laptop has one)
 
-Layout
-------
+Keyboard layout
+---------------
 SUPER + Space                us <-> ru
 
 Files
 -----
-Config:     ~/.config/hypr/hyprland.lua (modules in ~/.config/hypr/conf/)
-Wallpaper:  ~/.config/hypr/scripts/wallpaper.sh
-Wallpaper:  ~/.wallpapers (folder for wallpaper images)
+Hyprland:    ~/.config/hypr/hyprland.lua (modules in ~/.config/hypr/conf/)
+Quickshell:  ~/.config/quickshell/ (island, wallpaper, notifications, launcher)
+Matugen:     ~/.config/matugen/ (palette + templates for every app)
+Wallpapers:  ~/.wallpapers
 Screenshots: ~/Pictures/Screenshots
