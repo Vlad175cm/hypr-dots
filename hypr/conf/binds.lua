@@ -26,10 +26,53 @@ hl.bind(S .. " + RIGHT", hl.dsp.focus({ direction = "right" }))
 hl.bind(S .. " + UP", hl.dsp.focus({ direction = "up" }))
 hl.bind(S .. " + DOWN", hl.dsp.focus({ direction = "down" }))
 
-hl.bind(SA .. " + LEFT", hl.dsp.window.move({ direction = "left" }))
-hl.bind(SA .. " + RIGHT", hl.dsp.window.move({ direction = "right" }))
-hl.bind(SA .. " + UP", hl.dsp.window.move({ direction = "up" }))
-hl.bind(SA .. " + DOWN", hl.dsp.window.move({ direction = "down" }))
+local function is_float()
+    local w = hl.get_active_window()
+    return w ~= nil and w.floating
+end
+
+local function move_active(dir, dx, dy)
+    return function()
+        if is_float() then
+            hl.dispatch(hl.dsp.window.move({ x = dx, y = dy, relative = true }))
+        else
+            hl.dispatch(hl.dsp.window.move({ direction = dir }))
+        end
+    end
+end
+
+local function resize_active(dx, dy)
+    return function()
+        if is_float() then
+            hl.dispatch(hl.dsp.window.resize({ x = dx, y = dy, relative = true }))
+        end
+    end
+end
+
+hl.bind(SA .. " + LEFT", move_active("left", -20, 0))
+hl.bind(SA .. " + RIGHT", move_active("right", 20, 0))
+hl.bind(SA .. " + UP", move_active("up", 0, -20))
+hl.bind(SA .. " + DOWN", move_active("down", 0, 20))
+
+hl.bind(SA .. " + CTRL + LEFT", resize_active(-20, 0), { repeating = true })
+hl.bind(SA .. " + CTRL + RIGHT", resize_active(20, 0), { repeating = true })
+hl.bind(SA .. " + CTRL + UP", resize_active(0, -20), { repeating = true })
+hl.bind(SA .. " + CTRL + DOWN", resize_active(0, 20), { repeating = true })
+
+local function drag_float()
+    if is_float() then
+        hl.dispatch(hl.dsp.window.drag())
+    end
+end
+
+local function resize_drag_float()
+    if is_float() then
+        hl.dispatch(hl.dsp.window.resize())
+    end
+end
+
+hl.bind(S .. " + mouse:272", drag_float, { mouse = true })
+hl.bind(S .. " + mouse:273", resize_drag_float, { mouse = true })
 
 for i = 1, 10 do
     local n = i % 10
